@@ -1,4 +1,4 @@
 ---
 dependencies:
-- Hyperion/Enable shared memory
+- Hyperion/setup
 - Hyperion/common

@@ -1,5 +1,5 @@
 ---
-domain_dir: /var/uni/hyperion
+domain_dir: /var/Hyperion
 
 recreate_xml: true
 

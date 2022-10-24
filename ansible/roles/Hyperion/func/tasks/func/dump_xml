@@ -12,7 +12,7 @@
 
 # Some Distros may not require "sudo" so move it into the `include_tasks` caller:
 # Example:
-# - include_tasks: "{{playbook_dir}}/roles/uni/Hyperion/tasks/func/dump_xml"
+# - include_tasks: "{{playbook_dir}}/roles/Hyperion/tasks/func/dump_xml"
 #   args:
 #     apply:
 #       become: true

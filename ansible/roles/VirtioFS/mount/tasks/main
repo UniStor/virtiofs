@@ -1,0 +1,4 @@
+---
+
+- include_tasks: fstab
+  when: mount_on_boot
