@@ -1,0 +1,7 @@
+---
+
+- hosts: guest
+  vars:
+    mount_on_boot: true
+  roles:
+  - VirtioFS/mount

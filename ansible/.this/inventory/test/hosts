@@ -6,15 +6,12 @@ ansible_connection=local
 ansible_user=me
 ansible_become_password=u
 
-[vm]
-192.168.122.91
-
-[vm:vars]
-ansible_user=me
-ansible_become_password=u
-
 [host:children]
 local
 
-[guest:children]
-vm
+[guest]
+192.168.122.91
+
+[guest:vars]
+ansible_user=me
+ansible_become_password=u
