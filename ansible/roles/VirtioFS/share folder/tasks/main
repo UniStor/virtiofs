@@ -1,20 +1,19 @@
 ---
+- name: get basename for target
+  ansible.builtin.command: "basename {{share_folder}}"
+  register: basename
 
-- name: dump xml
-  include_tasks: "{{playbook_dir}}/roles/uni/Hyperion/tasks/func/dump_xml"
-  args:
-    apply:
-      become: true
-
-- name: Enable shared memory
+- name: set VirtioFS Filesystem
   become: true
   ansible.builtin.blockinfile:
     path: "{{xml_file}}"
-    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
-    insertafter: "</currentMemory>$"
+    marker: "<!-- {mark} ANSIBLE MANAGED VirtioFS -->"
+    insertbefore: "<interface type='network'>$"
     block: |
-      <memoryBacking>
-        <source type='memfd'/>
-        <access mode='shared'/>
-      </memoryBacking>
-  notify: Define VM for kvm
+      <filesystem type='mount' accessmode='passthrough'>
+        <driver type='virtiofs'/>
+        <source dir='{{share_folder}}'/>
+        <target dir='{{basename.stdout}}'/>
+        <address type='pci' domain='0x0000' bus='0x07' slot='0x00' function='0x0'/>
+      </filesystem>
+  notify: Define VM from xml

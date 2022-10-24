@@ -1,4 +1,4 @@
 ---
 dependencies:
-- uni/Hyperion/Enable shared memory
+- uni/Hyperion/setup
 - uni/Hyperion/common

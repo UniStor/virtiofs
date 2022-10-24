@@ -3,7 +3,7 @@
   vars:
     vm_name: fedora-lxqt
     share_folder: "/home/me/src"
-    recreate_xml: false
+    # recreate_xml: false
   roles:
   - VirtioFS/share folder
 

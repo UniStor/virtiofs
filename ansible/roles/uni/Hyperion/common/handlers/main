@@ -1,6 +1,6 @@
 ---
 
-- name: Define VM for kvm
+- name: Define VM from xml
   become: true
   community.libvirt.virt:
     command: define
