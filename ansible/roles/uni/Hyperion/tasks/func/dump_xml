@@ -1,0 +1,18 @@
+---
+
+- name: dump xml
+  ansible.builtin.shell: "virsh dumpxml {{vm_name}} > {{xml_file}}"
+  args:
+    creates: "{{xml_file}}"
+  when: not recreate_xml
+
+- name: dump xml recreate
+  ansible.builtin.shell: "virsh dumpxml {{vm_name}} > {{xml_file}}"
+  when: recreate_xml
+
+# Some Distros may not require "sudo" so move it into the `include_tasks` caller:
+# Example:
+# - include_tasks: "{{playbook_dir}}/roles/uni/Hyperion/tasks/func/dump_xml"
+#   args:
+#     apply:
+#       become: true

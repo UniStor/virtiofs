@@ -1,0 +1,15 @@
+---
+- hosts: host
+  vars:
+    vm_name: fedora-lxqt
+    share_folder: "/home/me/src"
+    recreate_xml: false
+  roles:
+  - VirtioFS/share folder
+
+
+# - hosts: guest
+#   vars:
+#     mount_on_boot: true
+#   roles:
+#   - VirtioFS/mount share

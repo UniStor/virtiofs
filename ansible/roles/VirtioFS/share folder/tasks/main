@@ -1,0 +1,20 @@
+---
+
+- name: dump xml
+  include_tasks: "{{playbook_dir}}/roles/uni/Hyperion/tasks/func/dump_xml"
+  args:
+    apply:
+      become: true
+
+- name: Enable shared memory
+  become: true
+  ansible.builtin.blockinfile:
+    path: "{{xml_file}}"
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    insertafter: "</currentMemory>$"
+    block: |
+      <memoryBacking>
+        <source type='memfd'/>
+        <access mode='shared'/>
+      </memoryBacking>
+  notify: Define VM for kvm

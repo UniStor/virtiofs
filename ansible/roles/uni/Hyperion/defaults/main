@@ -1,0 +1,6 @@
+---
+domain_dir: /var/uni/hyperion
+
+recreate_xml: true
+
+xml_file: "{{domain_dir}}/{{vm_name}}.xml"

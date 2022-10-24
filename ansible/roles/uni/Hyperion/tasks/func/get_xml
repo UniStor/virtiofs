@@ -1,0 +1,15 @@
+---
+
+- name: get_xml builtin
+  become: true
+  community.libvirt.virt:
+    name: "{{vm}}"
+    command: get_xml
+  register: xml
+
+
+- name: Todo - Extract single value!
+  debug:
+    # msg: "Try {{xml}}"
+    msg: "Try {{item.value}}"
+  loop: "{{ lookup('ansible.builtin.dict', xml) }}"

@@ -1,0 +1,8 @@
+---
+
+- name: create domain_dir
+  become: true
+  ansible.builtin.file:
+    path: "{{domain_dir}}"
+    state: directory
+    owner: "{{ansible_user}}"

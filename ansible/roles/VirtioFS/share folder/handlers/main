@@ -1,0 +1,9 @@
+---
+
+- name: Define VM for kvm
+  become: true
+  community.libvirt.virt:
+    command: define
+    # xml: "{{ lookup('template', 'xml_file') }}"
+    xml: "{{lookup('ansible.builtin.file', xml_file) }}"
+    uri: 'qemu:///system'
