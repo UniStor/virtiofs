@@ -1,0 +1,4 @@
+---
+domain_dir: /var/Hyperion
+
+xml_file: "{{domain_dir}}/{{vm_name}}.xml"

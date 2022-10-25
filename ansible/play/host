@@ -2,7 +2,11 @@
 
 - hosts: host
   vars:
+    recreate_xml: false
     vm_name: fedora-lxqt
     share_folder: "/home/me/src"
   roles:
   - VirtioFS/share folder
+
+
+# There's a Bug which is breaking Idempotency, when recreate_xml: true! Find & Fix it

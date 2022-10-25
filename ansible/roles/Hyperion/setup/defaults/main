@@ -1,6 +1,2 @@
 ---
-domain_dir: /var/Hyperion
-
-recreate_xml: true
-
-xml_file: "{{domain_dir}}/{{vm_name}}.xml"
+recreate_xml: false
