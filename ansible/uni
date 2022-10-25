@@ -1,4 +1,10 @@
 ---
+- hosts: host
+  gather_facts: true
+  tasks:
+  - set_fact:
+      roles_path: "{{playbook_dir}}/roles"
+
 
 - name: Include hosts
   ansible.builtin.import_playbook: play/host

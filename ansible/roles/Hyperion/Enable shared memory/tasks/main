@@ -1,10 +1,7 @@
 ---
 
-- debug:
-    msg: "{{playbook_dir}}"
-
 - name: dump xml
-  include_tasks: "{{playbook_dir}}/roles/Hyperion/func/tasks/func/dump_xml"
+  include_tasks: "{{roles_path}}/Hyperion/func/tasks/dump_xml"
   args:
     apply:
       become: true
