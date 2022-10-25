@@ -6,4 +6,4 @@
     mount_on_boot: true
   roles:
   - Hyperion/start and connect
-  # - VirtioFS/mount
+  - VirtioFS/mount

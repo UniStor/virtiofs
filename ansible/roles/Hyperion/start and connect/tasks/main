@@ -13,8 +13,5 @@
   ansible.builtin.wait_for_connection:
     sleep: 10
 
-- name: Gather facts for first time
-  ansible.builtin.setup:
-
 # - debug:
 #     msg: "VM Started!"

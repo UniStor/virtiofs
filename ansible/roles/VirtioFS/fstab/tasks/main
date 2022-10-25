@@ -1,0 +1,29 @@
+---
+- name: Gather facts for first time
+  ansible.builtin.setup:
+
+- name: get RedHat
+  set_fact:
+    mount_dir: "{{RedHat_mount_dir}}"
+  when: ansible_os_family == 'RedHat'
+
+- name: get Debian
+  set_fact:
+    mount_dir: "{{Debian_mount_dir}}"
+  when: ansible_os_family == 'Debian'
+
+- name: Create mountpoint
+  become: true
+  ansible.builtin.file:
+    path: "{{mount_dir}}/{{basename}}"
+    state: directory
+    owner: "{{ansible_user}}"
+
+- name: Mount VirtioFS volume
+  become: true
+  ansible.posix.mount:
+    src: "{{basename}}"
+    path: "{{mount_dir}}/{{basename}}"
+    opts: rw,_netdev
+    state: mounted
+    fstype: virtiofs

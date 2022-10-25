@@ -1,0 +1,5 @@
+---
+
+Debian_mount_dir: "/media/{{ansible_user}}"
+
+RedHat_mount_dir: "/run/media/{{ansible_user}}"

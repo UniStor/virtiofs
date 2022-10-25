@@ -5,6 +5,8 @@ on_host(){
 in_vm(){
 	manual_mount(){
 		sudo mount -t virtiofs vm1 /home/me/vm1
+
+		sudo mount -t virtiofs src /run/media/me/src
 	}
 
 	auto_mount_fstab(){

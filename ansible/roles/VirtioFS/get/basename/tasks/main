@@ -1,0 +1,9 @@
+---
+
+- name: command basename
+  ansible.builtin.command: "basename {{share_folder}}"
+  register: out
+
+- name: get basename
+  set_fact:
+    basename: "{{out.stdout}}"

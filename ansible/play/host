@@ -2,7 +2,7 @@
 
 - hosts: host
   vars:
-    recreate_xml: false
+    recreate_xml: true
     vm_name: fedora-lxqt
     share_folder: "/home/me/src"
   roles:
