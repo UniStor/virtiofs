@@ -1,34 +1,4 @@
 ---
 
-# - hosts: local
-#   gather_facts: yes
-#   vars:
-#     vm_name: fedora-lxqt
-#   tasks:
-#   - debug:
-#       msg: "Mount on boot!"
-
-
-- hosts: guest
-  gather_facts: no
-  vars:
-    vm_name: fedora-lxqt
-  tasks:
-  - name: Start a VM
-    become: true
-    community.libvirt.virt:
-      name: "{{vm_name}}"
-      state: running
-    delegate_to: "{{item}}"
-    loop: "{{ groups['host'] }}"
-
-  - name: Wait 300 seconds, but only start checking after 60 seconds
-    ansible.builtin.wait_for_connection:
-      delay: 60
-      timeout: 300
-
-#   - name: Gather facts for first time
-#     ansible.builtin.setup:
-
-  - debug:
-      msg: "Mount on boot!"
+- name: Include hosts
+  ansible.builtin.import_playbook: play/host

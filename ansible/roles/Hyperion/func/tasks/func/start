@@ -3,5 +3,5 @@
 - name: Start a VM
   become: true
   community.libvirt.virt:
-    name: "{{vm}}"
+    name: "{{vm_name}}"
     state: running
