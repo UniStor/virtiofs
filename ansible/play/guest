@@ -2,8 +2,8 @@
 - hosts: guest
   gather_facts: false
   vars:
-    # vm_name: ubuntu22.10
     mount_on_boot: true
+    vm_name: "{{ hostvars['variable_holder']['shared_variable'] }}"
   roles:
   - Hyperion/start and connect
   - VirtioFS/mount

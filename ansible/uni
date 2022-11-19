@@ -12,11 +12,8 @@
 
 - name: Add virtio filesystem to vm
   ansible.builtin.import_playbook: play/host
-  vars:
-    vm_name: "{{ hostvars['variable_holder']['shared_variable'] }}"
 
 - name: Start and mount FS in guest
   ansible.builtin.import_playbook: play/guest
   vars:
-    vm_name: "{{ hostvars['variable_holder']['shared_variable'] }}"
     share_folder: "/home/{{ansible_user}}/src"
