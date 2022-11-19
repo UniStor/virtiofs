@@ -1,6 +1,6 @@
 ---
 - hosts: guest
-  gather_facts: no
+  gather_facts: false
   vars:
     # vm_name: ubuntu22.10
     mount_on_boot: true
