@@ -11,4 +11,5 @@
 - name: Start and mount FS in guest
   ansible.builtin.import_playbook: play/guest
   vars:
+    vm_name: ubuntu22.10
     share_folder: "/home/{{ansible_user}}/src"
