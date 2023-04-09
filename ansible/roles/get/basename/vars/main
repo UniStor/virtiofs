@@ -1,0 +1,5 @@
+---
+# use Empty list for set_fact!
+# https://stackoverflow.com/questions/43631390/ansible-set-fact-array-and-populate-it-from-in-loop
+
+basename: []

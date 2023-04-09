@@ -3,8 +3,7 @@
 - hosts: host
   vars:
     recreate_xml: true
-    share_folder: "/home/{{ansible_user}}/src"
-    vm_name: "{{ hostvars['variable_holder']['shared_variable'] }}"
+    vm_name: "{{ hostvars['variable_holder']['shared_variable'] }"
   roles:
   - VirtioFS/share folder
 

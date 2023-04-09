@@ -1,0 +1,25 @@
+---
+- hosts: host
+  vars:
+    vm_name: "Simba.dev"
+  tasks:
+  - set_fact:
+      roles_path: "{{playbook_dir}}/roles"
+  - add_host:
+      name: "variable_holder"
+      shared_variable: "{{ vm_name }}"
+
+
+- name: Add virtio filesystem to vm
+  ansible.builtin.import_playbook: play/host
+  vars:
+    folder:
+    - "/home/{{ansible_user}}/src"
+    - "/home/{{ansible_user}}/bot"
+
+- name: Start and mount FS in guest
+  ansible.builtin.import_playbook: play/guest
+  vars:
+    share_folder: "/home/{{ansible_user}}/src"
+    folder:
+    - "/home/{{ansible_user}}/src"

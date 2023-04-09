@@ -1,0 +1,21 @@
+---
+
+- name: command basename
+  ansible.builtin.command: "basename {{item}}"
+  register: out
+  loop: "{{folder}}"
+
+- name: Test
+  debug:
+    msg: "Hello: {{item.stdout}}"
+  with_items: "{{out.results}}"
+
+- name: get basename
+  set_fact:
+    basename: "{{ basename + [item.stdout] }}"
+  with_items: "{{out.results}}"
+
+- name: Show Basename
+  debug:
+    msg: "Hello: {{item}}"
+  with_items: "{{basename}}"

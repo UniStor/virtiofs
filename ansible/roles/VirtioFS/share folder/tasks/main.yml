@@ -9,8 +9,9 @@
     block: |
       <filesystem type='mount' accessmode='passthrough'>
         <driver type='virtiofs'/>
-        <source dir='{{share_folder}}'/>
+        <source dir='{{item}}'/>
         <target dir='{{basename}}'/>
         <address type='pci' domain='0x0000' bus='0x07' slot='0x00' function='0x0'/>
       </filesystem>
   notify: Define VM from xml
+  loop: "{{folder}}"
