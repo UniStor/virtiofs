@@ -1,7 +1,6 @@
----
 - hosts: host
   vars:
-    vm_name: "ubuntu22.10"
+    vm_name: "ubuntu23.04"
   tasks:
   - set_fact:
       roles_path: "{{playbook_dir}}/roles"
@@ -11,9 +10,9 @@
 
 
 - name: Add virtio filesystem to vm
-  ansible.builtin.import_playbook: play/host
+  ansible.builtin.import_playbook: play/host.yml
 
 - name: Start and mount FS in guest
-  ansible.builtin.import_playbook: play/guest
+  ansible.builtin.import_playbook: play/guest.yml
   vars:
     share_folder: "/home/{{ansible_user}}/src"
