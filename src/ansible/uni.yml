@@ -8,6 +8,12 @@
       name: "variable_holder"
       shared_variable:  "{{ vm_name }}"
 
+# ToDo: Make this Smarter! and automatic.
+#
+# current limitations:
+# - You have to start with the guest VM powered off.
+# - you must run "ssh-copy-id user@guest"
+# - and it must be added to hosts.
 
 - name: Add virtio filesystem to vm
   ansible.builtin.import_playbook: play/host.yml
